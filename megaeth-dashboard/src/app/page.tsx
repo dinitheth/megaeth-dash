@@ -1,4 +1,5 @@
 'use client';
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_TOP_HOLDERS } from '../graphql/queries';
