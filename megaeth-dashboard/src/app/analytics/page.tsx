@@ -2,7 +2,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_TOP_HOLDERS, GET_RECENT_TRANSFERS } from '../../graphql/queries';
-import { formatTokenAmount } from '../../utils/formatters';
 import {
   PieChart,
   Pie,
@@ -61,7 +60,7 @@ export default function AnalyticsPage() {
                   <Cell key={idx} fill={COLORS[idx % COLORS.length]} />
                 ))}
               </Pie>
-              <RechartsTooltip formatter={(val: any) => `${val.toFixed(2)} TOKEN`} />
+              <RechartsTooltip formatter={(val: any) => `${Number(val).toFixed(2)} TOKEN`} />
               <Legend verticalAlign="bottom" height={36} />
             </PieChart>
           </ResponsiveContainer>
@@ -73,7 +72,7 @@ export default function AnalyticsPage() {
               <XAxis dataKey="date" stroke="#ccc" />
               <YAxis stroke="#ccc" />
               <CartesianGrid stroke="#444" strokeDasharray="3 3" />
-              <RechartsTooltip formatter={(val: any) => `${val.toFixed(2)} TOKEN`} />
+              <RechartsTooltip formatter={(val: any) => `${Number(val).toFixed(2)} TOKEN`} />
               <Legend />
               <Line type="monotone" dataKey="value" name="Volume" stroke="#00C49F" dot={false} />
             </LineChart>
